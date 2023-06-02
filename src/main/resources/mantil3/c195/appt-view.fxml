@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mantil3.c195.controller.ApptController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="20.0" prefWidth="20.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="700.0" minWidth="10.0" prefWidth="700.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="20.0" prefWidth="20.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="53.0" minHeight="17.0" prefHeight="49.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="83.0" minHeight="47.0" prefHeight="51.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="278.0" minHeight="10.0" prefHeight="253.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <TableView fx:id="tableview" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <columns>
+                <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="titleCol" prefWidth="75.0" text="Title" />
+            <TableColumn fx:id="descCol" prefWidth="75.0" text="Description" />
+            <TableColumn fx:id="locationCol" prefWidth="75.0" text="Location" />
+            <TableColumn fx:id="typeCol" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="startCol" prefWidth="75.0" text="Start" />
+            <TableColumn fx:id="endCol" prefWidth="75.0" text="End" />
+            <TableColumn fx:id="contactCol" prefWidth="75.0" text="Contact ID" />
+            <TableColumn fx:id="customerCol" prefWidth="75.0" text="Customer ID" />
+            <TableColumn fx:id="userCol" prefWidth="75.0" text="User ID" />
+            </columns>
+        </TableView>
+        <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5">
+            <buttons>
+                <Button mnemonicParsing="false" onAction="#backToHome" text="Back" />
+            </buttons>
+            <GridPane.margin>
+                <Insets />
+            </GridPane.margin>
+        </ButtonBar>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <children>
+            <RadioButton fx:id="allAppts" mnemonicParsing="false" onAction="#filterAppts" selected="true" text="All">
+               <toggleGroup>
+                  <ToggleGroup fx:id="dateFilter" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="monthlyAppts" mnemonicParsing="false" onAction="#filterAppts" text="Monthly" toggleGroup="$dateFilter">
+               <padding>
+                  <Insets left="20.0" />
+               </padding></RadioButton>
+            <RadioButton fx:id="weeklyAppts" mnemonicParsing="false" onAction="#filterAppts" text="Weekly" toggleGroup="$dateFilter">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </RadioButton>
+         </children>
+        </HBox>
+      <Button mnemonicParsing="false" onAction="#customReport" text="Appointments in Location" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <ButtonBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <buttons>
+                <Button mnemonicParsing="false" onAction="#delete" text="Delete" />
+                <Button mnemonicParsing="false" onAction="#modify" text=" Modify" />
+                <Button mnemonicParsing="false" onAction="#add" text="Add" />
+            </buttons>
+        </ButtonBar>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" onAction="#toContactReport" text="Appts. by Type &amp; Month" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Label fx:id="message" prefHeight="17.0" prefWidth="733.0" textFill="RED" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+    </children>
+</GridPane>
